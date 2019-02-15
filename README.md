@@ -28,7 +28,3 @@ Top panel that has two links - Logged in USER ID and a LOGOUT button
 5. On clicking OK, the API call will be made.
 
 See uploaded image for a view of what it will look like. Choose your own design. 
-
-At the bottom would be a table with a heading - ORGANIZATION OVERVIEW.
-
-Make sure that the table is dynamic and changes as the view size changes.
