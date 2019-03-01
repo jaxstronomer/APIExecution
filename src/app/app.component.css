@@ -1,0 +1,14 @@
+.left,.right{
+padding:0;    
+}
+.side{
+    width:100%;
+}
+.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 100%;
+}
+@media screen and (max-width: 700px) {
+    .content {margin-left: 0;}
+  }

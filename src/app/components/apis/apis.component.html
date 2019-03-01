@@ -1,0 +1,87 @@
+<div class="container-fluid">
+  <div class="container-fluid selectClass">
+    <p class="text">List of APIs </p>
+    <select [ngModel]="api" (ngModelChange)="setVals($event)">
+      <option [ngValue]="undefined" disabled selected>Select API</option>
+      <option [ngClass]="{'active': selectedItem == item}" *ngFor="let item of mylist" [ngValue]="item">
+        {{item.name}}
+      </option>
+    </select>
+  </div>
+
+
+  <br>
+  <div *ngIf="show">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <p class="text"> You Selected : <b>{{api.name | uppercase}}</b></p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <p class="text">API description : <i>{{api.desc}}</i></p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+
+          <div class="card">
+            <div class="card-body">
+              <p class="text">API-ID : {{api.id}}</p>
+            </div>
+          </div>
+
+
+
+          <div class="card">
+            <div class="card-body">
+              <p class="text">API params : </p>
+              <ul>
+                <li *ngFor="let p of api.params">
+                  {{p}}
+                </li>
+              </ul>
+            </div>
+          </div>
+          <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#myModal">Execute API</button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h4 class="modal-title">Confirm Execution</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <div class="modal-body">
+            Do you want to execute API : <b>{{api.name | uppercase}}</b> ?
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" (click)="executeApi(api)">Execute</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
